@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-LAPSPortal_Server-9289d40b-ade1-449a-b2ab-e1172f764884</UserSecretsId>
+    <WebProject_DirectoryAccessLevelKey>0</WebProject_DirectoryAccessLevelKey>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.5.0" />
+    <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureAD.UI" Version="3.1.20" />
+  </ItemGroup>
+
+</Project>
