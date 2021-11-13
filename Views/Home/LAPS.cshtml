@@ -1,0 +1,50 @@
+﻿@{ ViewData["Title"] = "LAPS"; }
+
+<h3>Wyszukiwanie hasła administratora lokalnego</h3>
+<p></p>
+<p>W celu wyszukania hasła administratora lokalnego określ nazwę komputera.</p>
+<p>
+    @using (Html.BeginForm("LAPS", "Home", FormMethod.Get))
+    {
+<table style="padding: 10px 10px 10px 0px;">
+    <tr>
+        <td style="padding: 10px 10px 10px 0px;">Nazwa komputera:</td>
+        <td style="padding: 10px 10px 10px 0px;" colspan="2">
+            @Html.TextBox("searchValue") <input id="Search" type="submit" value="Szukaj" onclick="displayBusyIndicator()" />
+        </td>
+    </tr>
+</table>
+    }
+</p>
+
+@if (ViewData["SecretValue"] != null)
+{
+<div style="padding-top: 20px">
+    <table class="table table-striped table-hover" style="padding: 10px 10px 10px 0px;">
+        <tr>
+            <td>Nazwa komputera:</td>
+            <td>@ViewData["SecretDeviceName"]</td>
+        </tr>
+        <tr>
+            <td>Nazwa użytkownika:</td>
+            <td>@ViewData["SecretUserName"]</td>
+        </tr>
+        <tr>
+            <td>Hasło:</td>
+            <td><strong>@ViewData["SecretValue"]</strong></td>
+        </tr>
+        <tr>
+            <td>Data aktualizacji:</td>
+            <td>@ViewData["SecretDate"]</td>
+        </tr>
+    </table>
+</div> }
+            else
+            {
+                if (ViewData["Result"] == "Failed")
+                {
+<p style="color:red">Nie znaleziono nazwy komputera</p> }
+                else
+                {
+<p></p>}
+            }
