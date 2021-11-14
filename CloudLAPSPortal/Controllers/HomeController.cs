@@ -43,8 +43,8 @@ namespace LAPSPortal.Controllers
                     LAPSSecret secret = await LAPSSecret.GetComputerAsync(keyVaultUri, searchValue);
                     if (secret != null)
                     {
-                        // Construct new Log Analytics wrapper
-                        LAPSLogs logClient = new LAPSLogs
+                        // Construct new Log Analytics Client
+                        LAPSLogAnalytics LAClient = new LAPSLogAnalytics
                         (
                             workspaceId: configuration.GetSection("LogAnalytics")["WorkspaceId"],
                             sharedKey: configuration.GetSection("LogAnalytics")["SharedKey"],
@@ -63,7 +63,7 @@ namespace LAPSPortal.Controllers
                         };
 
                         // Send audit event
-                        await logClient.SendLogEntry(auditEvent);
+                        await LAClient.SendLogEntry(auditEvent);
 
                         // Populate view with value from Key Vault
                         ViewData["SecretValue"] = secret.SecretValue;
