@@ -6,7 +6,7 @@ Param
 # Use TLS 1.2 connection
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$Uri = 'https://functionapp-laps-psmvp.azurewebsites.net/api/Set-KeyVaultSecret?code=cL7TGRJAIN6pbN1hGISN0r6M3bE9pD7bbZPMJnFFNMpfvUhRVtjhSQ=='
+$Uri = '<Function App Uri>'
 
 $Body = @"
     {
